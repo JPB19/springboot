@@ -1,0 +1,47 @@
+@Entity
+@Table(name = "producto")
+public class Producto {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	private String name;
+	private String class;
+	private Integer precio;
+	@ManyToOne
+	@JoinColumn(name = "car_type_id")
+	
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+	
+	public String getClase() {
+		return clase;
+	}
+	
+	public void setClase(String class) {
+		this.class = class;
+	}
+	
+	public Integer getPrecio() {
+		return precio;
+	}
+	
+	public void setPrecio(Integer precio) {
+		
+		this.precio = precio;
+	}
+	
+}

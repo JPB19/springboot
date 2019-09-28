@@ -1,3 +1,14 @@
+package com.example.model;
+
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
+import org.hibernate.annotations.Entity;
+import org.hibernate.annotations.Table;
+
 @Entity
 @Table(name = "producto")
 public class Producto {
@@ -7,16 +18,13 @@ public class Producto {
 	private String name;
 	private String type;
 	private Integer price;
-	@ManyToOne
-	@JoinColumn(name = "car_type_id")
 	
+	@ManyToOne
+	@JoinColumn(name = "cliente_id")
+	private Cliente cliente;	
 
 	public Integer getId() {
 		return id;
-	}
-
-	public void setId(Integer id) {
-		this.id = id;
 	}
 
 	public String getName() {
@@ -28,7 +36,7 @@ public class Producto {
 	}
 	
 	public String getType() {
-		return clase;
+		return type;
 	}
 	
 	public void setType(String type) {
@@ -36,7 +44,7 @@ public class Producto {
 	}
 	
 	public Integer getPrecio() {
-		return precio;
+		return price;
 	}
 	
 	public void setPrice(Integer price) {
